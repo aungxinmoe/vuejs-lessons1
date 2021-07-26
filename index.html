@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title>Vue Js Learning</title>
+   <style>
+     .box{
+       background-color: aqua;
+       padding: 100px;
+       margin: 30px;
+       display: inline-block;
+       
+     }
+    li{
+      list-style: none;
+    }
+    .favourite{
+      background-color: aqua;
+    }
+   </style>
+</head>
+<body>
+  
+    <h1>Vue Js Learning</h1>
+    
+    <div id="app">
+
+  <div v-if="showBook"> 
+    <div v-for="book in books">
+   <ul>
+     <li :class="{favourite:book.isFav}" @click="clickHandler(book)">
+      <img :src="book.img"  width="300" height="200">
+      <p>BookName:: {{book.title}}</p>
+      <p>Author:: {{book.author}}</p>
+      <p>Age:: {{book.age}}</p><hr>
+     </li>
+    
+   </ul>
+   
+    </div>
+    
+  </div>
+  <button @click="showBook=!showBook">
+    <span v-if="showBook">hide</span>
+    <span v-if="!showBook">show</span>
+  </button>
+ 
+  <!-- <a :href="link">Google</a> -->
+  <!-- <div class="box" @mouseover="mouseOverHandler">Mouse Over</div>
+  <div class="box" @mouseleave="mouseLeaveHandler">Mouse Leave</div>
+  <div class="box" @dblclick="mousedbHandler">Double Click</div> -->
+    </div>
+   
+    <script src="app.js"></script>
+</body>
+</html>
